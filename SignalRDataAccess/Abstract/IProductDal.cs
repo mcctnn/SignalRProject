@@ -9,5 +9,6 @@ namespace SignalRDataAccess.Abstract
 {
     public interface IProductDal:IGenericDal<Product>
     {
+        List<Product> GetProductsWithCategories();
     }
 }
