@@ -12,8 +12,8 @@ using SignalRDataAccess.Concrete;
 namespace SignalRDataAccess.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    [Migration("20240702154645_init")]
-    partial class init
+    [Migration("20241105124754_start-relation")]
+    partial class startrelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,6 +204,9 @@ namespace SignalRDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -223,6 +226,8 @@ namespace SignalRDataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("ProductId");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -282,6 +287,22 @@ namespace SignalRDataAccess.Migrations
                     b.HasKey("TestimonialId");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("SignalR.EntityLayer.Entities.Product", b =>
+                {
+                    b.HasOne("SignalR.EntityLayer.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SignalR.EntityLayer.Entities.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
