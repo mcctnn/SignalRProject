@@ -57,7 +57,7 @@ namespace SignalRAPI.Controllers
             return Ok("Başarıyla güncellendi...");
         }
 
-        [HttpGet("Get category")]
+        [HttpGet("{id}")]
         public IActionResult GetCategory(int id) 
         {
             var result= _service.TGetById(id);
