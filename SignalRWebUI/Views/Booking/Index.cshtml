@@ -37,16 +37,18 @@
 									<tr>
 										<td>@count</td>
 										<td>@item.Name</td>
+										<td>@item.Phone</td>
+										<td>@item.Mail</td>
 										<td>@item.PersonCount</td>
 										<td>Rezervasyon Alındı</td>
-										<td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-outline-secondary">Güncelle</a></td>
+										<td><a href="/Booking/DeleteBooking/@item.BookingId" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Booking/UpdateBooking/@item.BookingId" class="btn btn-outline-secondary">Güncelle</a></td>
 									</tr>
 								}
 
 							</tbody>
 						</table>
-						<a href="/Category/CreateCategory" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
+						<a href="/Booking/CreateBooking" class="btn btn-outline-primary">Yeni Rezervasyon Girişi</a>
 					</div>
 				</div>
 			</div>

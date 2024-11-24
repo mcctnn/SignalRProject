@@ -41,7 +41,7 @@ namespace SignalRAPI.Controllers
             return Ok("Başarıyla discount eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount(int id)
         {
             var result = _service.TGetById(id);
@@ -62,7 +62,7 @@ namespace SignalRAPI.Controllers
             return Ok("Başarıyla güncellendi...");
         }
 
-        [HttpGet("Get discount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var result = _service.TGetById(id);
