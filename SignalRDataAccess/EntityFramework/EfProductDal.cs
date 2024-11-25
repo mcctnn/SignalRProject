@@ -23,5 +23,23 @@ namespace SignalRDataAccess.EntityFramework
             var values=context.Products.Include(x=>x.Category).ToList();
             return values;
         }
+
+        public int ProductCount()
+        {
+            using var context=new SignalRContext();
+            return context.Products.Count();
+        }
+
+        public int ProductCountByCategoryNameDrink()
+        {
+            using var context=new SignalRContext();
+            return context.Products.Where(x=>x.CategoryId==(context.Categories.Where(c=>c.CategoryName=="İçecek").Select(y=>y.CategoryId).FirstOrDefault())).Count();
+        }
+
+        public int ProductCountByCategoryNameBurger()
+        {
+            using var context = new SignalRContext();
+            return context.Products.Where(x => x.CategoryId == (context.Categories.Where(c => c.CategoryName == "Burger").Select(y => y.CategoryId).FirstOrDefault())).Count();
+        }
     }
 }

@@ -47,5 +47,13 @@ namespace SignalRBusiness.Concrete
         {
             _productDal.Update(entity);
         }
+
+        public int TProductCount()=>_productDal.ProductCount();
+
+        public int TProductCountByCategoryNameBurger()=>_productDal.ProductCountByCategoryNameBurger();
+        
+
+        public int TProductCountByCategoryNameDrink()=>_productDal.ProductCountByCategoryNameDrink();
+        
     }
 }
