@@ -54,6 +54,11 @@ namespace SignalRBusiness.Concrete
         
 
         public int TProductCountByCategoryNameDrink()=>_productDal.ProductCountByCategoryNameDrink();
+
+        public decimal TProductPriceAvg()=>_productDal.ProductPriceAvg();
+
+        public string TProductNameByMaxPrice()=>_productDal.ProductNameByMaxPrice();
         
+        public string TProductNameByMinPrice()=>_productDal.ProductNameByMinPrice();        
     }
 }

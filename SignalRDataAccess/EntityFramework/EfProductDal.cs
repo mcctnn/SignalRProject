@@ -41,5 +41,35 @@ namespace SignalRDataAccess.EntityFramework
             using var context = new SignalRContext();
             return context.Products.Where(x => x.CategoryId == (context.Categories.Where(c => c.CategoryName == "Burger").Select(y => y.CategoryId).FirstOrDefault())).Count();
         }
+
+        public decimal ProductPriceAvg()
+        {
+            using var context=new SignalRContext();
+            return context.Products.Average(x=>x.Price);
+        }
+
+        public string ProductNameByMaxPrice()
+        {
+            using var context=new SignalRContext();
+            var maxPrice = context.Products.Max(x => x.Price);
+
+            
+            return context.Products
+                          .Where(x => x.Price == maxPrice)
+                          .Select(x => x.ProductName)
+                          .SingleOrDefault();
+        }
+
+        public string ProductNameByMinPrice()
+        {
+            using var context = new SignalRContext();
+            var minPrice = context.Products.Min(x => x.Price);
+
+
+            return context.Products
+                          .Where(x => x.Price == minPrice)
+                          .Select(x => x.ProductName)
+                          .SingleOrDefault();
+        }
     }
 }

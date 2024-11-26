@@ -53,6 +53,13 @@ namespace SignalRAPI.Controllers
         [HttpGet("ProductCountByDrink")]
         public IActionResult ProductCountByCategoryNameDrink() => Ok(_service.TProductCountByCategoryNameDrink());
 
+        [HttpGet("ProductPriceAverage")]
+        public IActionResult ProductPriceAvg()=>Ok(_service.TProductPriceAvg());
+        [HttpGet("ProductNameByMaxPrice")]
+        public IActionResult ProductNameByMaxPrice() => Ok(_service.TProductNameByMaxPrice());
+        [HttpGet("ProductNameByMinPrice")]
+        public IActionResult ProductNameByMinPrice() => Ok(_service.TProductNameByMinPrice());
+
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {

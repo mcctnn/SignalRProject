@@ -13,5 +13,8 @@ namespace SignalRDataAccess.Abstract
         int ProductCount();
         int ProductCountByCategoryNameBurger();
         int ProductCountByCategoryNameDrink();
+        decimal ProductPriceAvg();
+        string ProductNameByMaxPrice();
+        string ProductNameByMinPrice();
     }
 }
