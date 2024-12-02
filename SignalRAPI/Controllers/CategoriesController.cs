@@ -9,11 +9,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _service;
         private readonly IMapper _mapper;
-        public CategoryController(ICategoryService service, IMapper mapper)
+        public CategoriesController(ICategoryService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

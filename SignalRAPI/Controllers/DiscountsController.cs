@@ -10,11 +10,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DiscountController : ControllerBase
+    public class DiscountsController : ControllerBase
     {
         private readonly IDiscountService _service;
         private readonly IMapper _mapper;
-        public DiscountController(IDiscountService service, IMapper mapper)
+        public DiscountsController(IDiscountService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

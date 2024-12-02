@@ -8,11 +8,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookingController : ControllerBase
+    public class BookingsController : ControllerBase
     {
         private readonly IBookingService _service;
 
-        public BookingController(IBookingService service)
+        public BookingsController(IBookingService service)
         {
             _service = service;
         }

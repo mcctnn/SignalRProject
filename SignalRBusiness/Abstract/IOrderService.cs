@@ -9,5 +9,8 @@ namespace SignalRBusiness.Abstract
 {
     public interface IOrderService:IGenericService<Order>
     {
+        int TOrderCount();
+        int TActiveOrderCount();
+        decimal TLastOrderPrice();
     }
 }

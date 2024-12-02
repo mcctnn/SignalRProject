@@ -18,6 +18,8 @@ namespace SignalRBusiness.Concrete
             _orderDal = orderDal;
         }
 
+        public int TActiveOrderCount()=>_orderDal.ActiveOrderCount();
+
         public void TAdd(Order entity)=>_orderDal.Add(entity);
 
         public void TDelete(Order entity)=>_orderDal.Delete(entity);
@@ -25,6 +27,12 @@ namespace SignalRBusiness.Concrete
         public Order TGetById(int id)=>_orderDal.GetById(id);
 
         public List<Order> TGetListAll()=>_orderDal.GetListAll();
+
+        public decimal TLastOrderPrice() => _orderDal.LastOrderPrice();
+        
+
+        public int TOrderCount()=>_orderDal.OrderCount();
+        
 
         public void TUpdate(Order entity)=>_orderDal.Update(entity);
     }

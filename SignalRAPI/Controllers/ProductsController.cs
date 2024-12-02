@@ -13,11 +13,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
         private readonly IMapper _mapper;
-        public ProductController(IProductService service, IMapper mapper)
+        public ProductsController(IProductService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

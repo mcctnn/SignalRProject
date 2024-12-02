@@ -10,11 +10,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
         private readonly IContactService _service;
         private readonly IMapper _mapper;
-        public ContactController(IContactService service, IMapper mapper)
+        public ContactsController(IContactService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

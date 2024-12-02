@@ -9,5 +9,8 @@ namespace SignalRDataAccess.Abstract
 {
     public interface IOrderDal:IGenericDal<Order>
     {
+        int OrderCount();
+        int ActiveOrderCount();
+        decimal LastOrderPrice();
     }
 }

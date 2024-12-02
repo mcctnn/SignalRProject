@@ -10,11 +10,11 @@ namespace SignalRAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SocialMediaController : ControllerBase
+    public class SocialMediasController : ControllerBase
     {
         private readonly ISocialMediaService _service;
         private readonly IMapper _mapper;
-        public SocialMediaController(ISocialMediaService service, IMapper mapper)
+        public SocialMediasController(ISocialMediaService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
