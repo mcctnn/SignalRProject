@@ -59,6 +59,8 @@ namespace SignalRBusiness.Concrete
 
         public string TProductNameByMaxPrice()=>_productDal.ProductNameByMaxPrice();
         
-        public string TProductNameByMinPrice()=>_productDal.ProductNameByMinPrice();        
+        public string TProductNameByMinPrice()=>_productDal.ProductNameByMinPrice();
+
+        public decimal TProductPriceAvgByHamburger() => _productDal.ProductPriceAvgByHamburger();        
     }
 }

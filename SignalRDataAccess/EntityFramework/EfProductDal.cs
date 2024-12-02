@@ -71,5 +71,13 @@ namespace SignalRDataAccess.EntityFramework
                           .Select(x => x.ProductName)
                           .SingleOrDefault();
         }
+
+        public decimal ProductPriceAvgByHamburger()
+        {
+            using var context= new SignalRContext();
+            return context.Products.Where(x => x.CategoryId ==
+            (context.Categories.Where(y => y.CategoryName == "Burger")
+            .Select(z => z.CategoryId).FirstOrDefault())).Average(a => a.Price);
+        }
     }
 }
