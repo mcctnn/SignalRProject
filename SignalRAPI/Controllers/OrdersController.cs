@@ -24,5 +24,7 @@ namespace SignalRAPI.Controllers
         public IActionResult ActiveOrderCount() => Ok(_orderService.TActiveOrderCount());
         [HttpGet("LastOrderPrice")]
         public IActionResult LastOrderPrice() => Ok(_orderService.TLastOrderPrice());
+        [HttpGet("TodayTotalPrice")]
+        public IActionResult TodayTotalPrice() => Ok(_orderService.TTodayTotalPrice());
     }
 }

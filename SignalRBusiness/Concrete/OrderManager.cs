@@ -32,7 +32,8 @@ namespace SignalRBusiness.Concrete
         
 
         public int TOrderCount()=>_orderDal.OrderCount();
-        
+
+        public decimal TTodayTotalPrice() => _orderDal.TodayTotalPrice();
 
         public void TUpdate(Order entity)=>_orderDal.Update(entity);
     }

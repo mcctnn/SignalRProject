@@ -33,5 +33,11 @@ namespace SignalRDataAccess.EntityFramework
             using var context = new SignalRContext();
             return context.Orders.Count();
         }
+
+        public decimal TodayTotalPrice()
+        {
+            using var context = new SignalRContext();
+            return 0;
+        }
     }
 }
