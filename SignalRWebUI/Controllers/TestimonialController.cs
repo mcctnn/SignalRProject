@@ -17,7 +17,7 @@ namespace SignalRWebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7180/api/Testimonial");
+            var responseMessage = await client.GetAsync("https://localhost:7180/api/Testimonials");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -37,7 +37,7 @@ namespace SignalRWebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createTestimonialDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7180/api/Testimonial", content);
+            var responseMessage = await client.PostAsync("https://localhost:7180/api/Testimonials", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -47,7 +47,7 @@ namespace SignalRWebUI.Controllers
         public async Task<IActionResult> DeleteTestimonial(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7180/api/Testimonial/{id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7180/api/Testimonials/{id}");
             if (responseMessage.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 
@@ -56,7 +56,7 @@ namespace SignalRWebUI.Controllers
         public async Task<IActionResult> UpdateTestimonial(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Testimonial/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Testimonials/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -71,7 +71,7 @@ namespace SignalRWebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateTestimonialDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7180/api/Testimonial/", content);
+            var responseMessage = await client.PutAsync("https://localhost:7180/api/Testimonials/", content);
             if (responseMessage.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 

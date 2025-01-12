@@ -54,7 +54,7 @@
                                             <h6>
                                                 @item.Price₺
                                             </h6>
-                                            <a href="/Menu/Index/" onclick="showproductid(@item.ProductId)">
+                                            <a href="#" onclick="showproductid(@item.ProductId,'@item.ProductName')">
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                 <g>
                                                 <g>
@@ -128,15 +128,16 @@
 
 
     <script>
-                function showproductid(value) {
+                function showproductid(value,name) {
             var id = value;
+            var productname=name;
             $.ajax({
                 type: 'post',
                 data: { item: id },
                 contentType: 'json',
                 success: function () {
                     Swal.fire({
-                        title: `Seçilen ürün Id: ${id}`,
+                        title:productname /* `Seçilen ürün Id: ${id}` */,
                         text: "Seçiminizi yaptınız!",
                         icon: "success",
                         confirmButtonText: "Tamam"

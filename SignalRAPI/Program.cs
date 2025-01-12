@@ -5,6 +5,7 @@ using SignalRDataAccess.Abstract;
 using SignalRDataAccess.Concrete;
 using SignalRDataAccess.EntityFramework;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,9 @@ builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 
 builder.Services.AddScoped<IBasketService, BasketManager>();
 builder.Services.AddScoped<IBasketDal, EfBasketDal>();
+
+builder.Services.AddControllersWithViews().AddJsonOptions(opt=>opt
+.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles);
 
 
 builder.Services.AddControllers();
